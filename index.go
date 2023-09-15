@@ -25,11 +25,11 @@ func (s S2Index) Find(coordinate Coordinate) string {
 	return s2.CellIDFromLatLng(ll).Parent(s.level).ToToken()
 }
 
-func (s S2Index) FindLarge(coordinate Coordinate) []string {
+func (s S2Index) FindLarge(coordinate Coordinate, level int) []string {
 	rv := []string{}
 	ll := s2.LatLngFromDegrees(coordinate.Latitude, coordinate.Longitude)
 	rv = append(rv, s2.CellIDFromLatLng(ll).Parent(s.level).ToToken())
-	for _, id := range s2.CellIDFromLatLng(ll).EdgeNeighbors() {
+	for _, id := range s2.CellIDFromLatLng(ll).AllNeighbors(level) {
 		rv = append(rv, id.Parent(s.level).ToToken())
 	}
 	return rv
