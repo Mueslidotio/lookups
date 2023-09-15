@@ -25,6 +25,16 @@ func (s S2Index) Find(coordinate Coordinate) string {
 	return s2.CellIDFromLatLng(ll).Parent(s.level).ToToken()
 }
 
+func (s S2Index) FindLarge(coordinate Coordinate) []string {
+	rv := []string{}
+	ll := s2.LatLngFromDegrees(coordinate.Latitude, coordinate.Longitude)
+	rv = append(rv, s2.CellIDFromLatLng(ll).Parent(s.level).ToToken())
+	for _, id := range s2.CellIDFromLatLng(ll).EdgeNeighbors() {
+		rv = append(rv, id.Parent(s.level).ToToken())
+	}
+	return rv
+}
+
 // Covers returns all S2 cells that cover the given polygon.
 func (s S2Index) Cover(polygon *s2.Polygon) []string {
 	if polygon.NumEdges() < 1 {
