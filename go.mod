@@ -1,9 +1,14 @@
 module github.com/Mueslidotio/lookups
 
-go 1.15
+go 1.19
+
+require (
+	github.com/golang/geo v0.0.0-20230421003525-6adc56603217
+	github.com/stretchr/testify v1.8.4
+)
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/golang/geo v0.0.0-20200730024412-e86565bf3f35
-	github.com/stretchr/testify v1.6.1
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
