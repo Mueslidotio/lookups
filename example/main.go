@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/4lie/lookups"
+	"github.com/Mueslidotio/lookups"
 )
 
 //nolint:gomnd,funlen

@@ -3,7 +3,7 @@ package lookups_test
 import (
 	"testing"
 
-	"github.com/4lie/lookups"
+	"github.com/Mueslidotio/lookups"
 	"github.com/stretchr/testify/assert"
 )
 
