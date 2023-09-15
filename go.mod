@@ -1,4 +1,4 @@
-module github.com/4lie/lookups
+module github.com/Mueslidotio/lookups
 
 go 1.15
 
